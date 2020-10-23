@@ -58,6 +58,9 @@
 		4341D70D25432371004DFC5E /* hacknews */ = {
 			isa = PBXGroup;
 			children = (
+				4341D7292543249D004DFC5E /* Services */,
+				4341D72825432494004DFC5E /* Extensions */,
+				4341D7272543247B004DFC5E /* Model */,
 				4341D7252543239F004DFC5E /* View */,
 				4341D72425432397004DFC5E /* Controller */,
 				4341D70E25432371004DFC5E /* AppDelegate.swift */,
@@ -92,6 +95,27 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4341D7272543247B004DFC5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4341D72825432494004DFC5E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4341D7292543249D004DFC5E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
