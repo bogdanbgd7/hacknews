@@ -92,7 +92,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_hacknews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZe-LW-9EZ">
-                                <rect key="frame" x="65" y="82" width="284" height="61"/>
+                                <rect key="frame" x="25" y="82" width="364" height="61"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="52"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -109,21 +109,43 @@
                                                 <color key="textColor" red="0.081868272261591699" green="0.70261837412383421" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHT-Gj-2bw">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHT-Gj-2bw" customClass="RoundButton" customModule="hacknews" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50.5" width="310" height="54.5"/>
                                                 <color key="backgroundColor" red="0.031849135392274817" green="0.1987056617449515" blue="0.70261837412383421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                                 <state key="normal" title="login with fb">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="24"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="signInWithFacebookButtonPressed:" destination="EZN-Sp-jgH" eventType="touchUpInside" id="Lat-XY-LMm"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bML-gb-uc8">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bML-gb-uc8" customClass="RoundButton" customModule="hacknews" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="115" width="310" height="54"/>
                                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                                 <state key="normal" title="login with G+">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="24"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="signInWithGoogleButtonPressed:" destination="EZN-Sp-jgH" eventType="touchUpInside" id="D1X-yk-lKM"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-VM-4zI">
                                                 <rect key="frame" x="0.0" y="179" width="310" height="40.5"/>
@@ -137,6 +159,9 @@
                                                 <state key="normal" title="by email">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="signInWithEmailButtonPressed:" destination="EZN-Sp-jgH" eventType="touchUpInside" id="cpC-ci-j6c"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -155,12 +180,12 @@
                         <color key="backgroundColor" red="0.38435746891510914" green="0.38435746891510914" blue="0.38435746891510914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="s45-k9-DrY" firstAttribute="trailing" secondItem="98I-gs-Dn2" secondAttribute="trailing" id="BdM-g9-fpQ"/>
-                            <constraint firstItem="uZe-LW-9EZ" firstAttribute="leading" secondItem="98I-gs-Dn2" secondAttribute="leading" constant="65" id="EU4-qH-jBi"/>
+                            <constraint firstItem="uZe-LW-9EZ" firstAttribute="leading" secondItem="98I-gs-Dn2" secondAttribute="leading" constant="25" id="EU4-qH-jBi"/>
                             <constraint firstItem="uZe-LW-9EZ" firstAttribute="top" secondItem="98I-gs-Dn2" secondAttribute="top" constant="38" id="G4o-Nb-0o7"/>
                             <constraint firstItem="s45-k9-DrY" firstAttribute="leading" secondItem="98I-gs-Dn2" secondAttribute="leading" id="RC4-4h-CEn"/>
                             <constraint firstItem="s45-k9-DrY" firstAttribute="top" secondItem="n3j-oQ-Kbq" secondAttribute="top" id="Vcl-Al-nVs"/>
                             <constraint firstItem="Lp1-54-o2m" firstAttribute="centerX" secondItem="n3j-oQ-Kbq" secondAttribute="centerX" id="sCT-CI-jFI"/>
-                            <constraint firstItem="98I-gs-Dn2" firstAttribute="trailing" secondItem="uZe-LW-9EZ" secondAttribute="trailing" constant="65" id="wEN-dH-jyf"/>
+                            <constraint firstItem="98I-gs-Dn2" firstAttribute="trailing" secondItem="uZe-LW-9EZ" secondAttribute="trailing" constant="25" id="wEN-dH-jyf"/>
                             <constraint firstItem="Lp1-54-o2m" firstAttribute="centerY" secondItem="n3j-oQ-Kbq" secondAttribute="centerY" id="yiE-ii-7Uv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="98I-gs-Dn2"/>
