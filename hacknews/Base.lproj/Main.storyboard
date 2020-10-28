@@ -148,22 +148,39 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-VM-4zI">
-                                                <rect key="frame" x="0.0" y="179" width="310" height="40.5"/>
+                                                <rect key="frame" x="0.0" y="179" width="310" height="61"/>
                                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="21"/>
                                                 <color key="textColor" red="0.081868272261591699" green="0.70261837412383421" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CX1-oa-Dxd">
-                                                <rect key="frame" x="0.0" y="229.5" width="310" height="80.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CX1-oa-Dxd" customClass="RoundButton" customModule="hacknews" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="250" width="310" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="L5w-Cr-QAU"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                                 <state key="normal" title="by email">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.08186827226" green="0.70261837410000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="signInWithEmailButtonPressed:" destination="EZN-Sp-jgH" eventType="touchUpInside" id="cpC-ci-j6c"/>
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="CX1-oa-Dxd" firstAttribute="centerX" secondItem="tVa-Mh-lnN" secondAttribute="centerX" id="f0g-AJ-CEJ"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.68386953650640492" green="0.6827310013797675" blue="0.70261837412383421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -190,6 +207,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="98I-gs-Dn2"/>
                     </view>
+                    <connections>
+                        <outlet property="stackView" destination="Lp1-54-o2m" id="NN1-ev-Sxb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpd-Q7-lFZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,6 +230,9 @@
                                     <constraint firstAttribute="width" constant="35" id="wYr-TJ-fIl"/>
                                 </constraints>
                                 <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="S2c-Lr-QHh" eventType="touchUpInside" id="gZj-MR-bd1"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZcN-s0-heb">
                                 <rect key="frame" x="45" y="138" width="324" height="164.5"/>
@@ -220,7 +243,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3oz-b7-XVQ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3oz-b7-XVQ" customClass="RoundedTextField" customModule="hacknews" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="54.5" width="324" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -235,7 +258,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mYR-n1-K0G">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mYR-n1-K0G" customClass="RoundedTextField" customModule="hacknews" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="124.5" width="324" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -252,15 +275,31 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQY-Fe-GYG">
-                                <rect key="frame" x="162" y="332.5" width="90" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQY-Fe-GYG" customClass="RoundButton" customModule="hacknews" customModuleProvider="target">
+                                <rect key="frame" x="162" y="332.5" width="90" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="1rM-xr-o3D"/>
+                                    <constraint firstAttribute="height" constant="45" id="tCq-d8-QqH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="sign in">
                                     <color key="titleColor" red="0.08186827226" green="0.70261837410000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.08186827226" green="0.70261837410000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signInButtonPressed:" destination="S2c-Lr-QHh" eventType="touchUpInside" id="swu-cO-pyE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.38426861169999998" green="0.38433963059999998" blue="0.38426411150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -280,6 +319,10 @@
                             <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="passwordTextField" destination="mYR-n1-K0G" id="qTm-nX-pGO"/>
+                        <outlet property="usernameTextField" destination="3oz-b7-XVQ" id="jgi-vT-C5D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfH-yh-2YP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

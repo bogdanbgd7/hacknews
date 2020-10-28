@@ -9,25 +9,81 @@
 import UIKit
 
 class LoginVC: UIViewController {
-
+    
+    
+    //Outlets
+    
+    @IBOutlet weak var usernameTextField: RoundedTextField!
+    @IBOutlet weak var passwordTextField: RoundedTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //Rounded textfields programatically
+        usernameTextField.layer.cornerRadius = 12
+        passwordTextField.layer.cornerRadius = 12
+    
+    }
+    
+    //Actions
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func signInButtonPressed(_ sender: Any) {
+        
+        if usernameTextField.text == "" {
+            
+            print("YOU MUST FILL THE FIELDS!!!")
+            
+            usernameTextField.shake()
+            
+        }
+        else if passwordTextField.text == ""{
+            
+            print("YOU MUST FILL THE FIELDS!!!")
+            
+            passwordTextField.shake()
+            
+        }
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension UIView {
+    func shake(){
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 3
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 10, y: self.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
+        self.layer.add(animation, forKey: "position")
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 extension UITextField {
     @IBInspectable var placeholderColor: UIColor {
@@ -40,4 +96,6 @@ extension UITextField {
             self.attributedPlaceholder = NSAttributedString(string: attributedPlaceholder.string, attributes: attributes)
         }
     }
+    
+    
 }

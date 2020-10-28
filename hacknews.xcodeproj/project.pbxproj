@@ -12,6 +12,7 @@
 		430CC62A25483EC000291DF0 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430CC62925483EC000291DF0 /* LoginVC.swift */; };
 		430CC62E25484BA400291DF0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430CC62D25484BA400291DF0 /* AuthService.swift */; };
 		430CC63025488B7300291DF0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430CC62F25488B7300291DF0 /* RoundButton.swift */; };
+		430CC6322548904200291DF0 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430CC6312548904200291DF0 /* RoundedTextField.swift */; };
 		4341D70F25432371004DFC5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341D70E25432371004DFC5E /* AppDelegate.swift */; };
 		4341D71125432371004DFC5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341D71025432371004DFC5E /* SceneDelegate.swift */; };
 		4341D71325432371004DFC5E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341D71225432371004DFC5E /* FirstViewController.swift */; };
@@ -30,6 +31,7 @@
 		430CC62925483EC000291DF0 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		430CC62D25484BA400291DF0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		430CC62F25488B7300291DF0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		430CC6312548904200291DF0 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		4341D70B25432371004DFC5E /* hacknews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hacknews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4341D70E25432371004DFC5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4341D71025432371004DFC5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				430CC62F25488B7300291DF0 /* RoundButton.swift */,
+				430CC6312548904200291DF0 /* RoundedTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				430CC63025488B7300291DF0 /* RoundButton.swift in Sources */,
 				430CC62825483E5E00291DF0 /* AuthVC.swift in Sources */,
 				4341D71525432371004DFC5E /* SecondViewController.swift in Sources */,
+				430CC6322548904200291DF0 /* RoundedTextField.swift in Sources */,
 				430CC62A25483EC000291DF0 /* LoginVC.swift in Sources */,
 				4341D71325432371004DFC5E /* FirstViewController.swift in Sources */,
 				4341D70F25432371004DFC5E /* AppDelegate.swift in Sources */,
