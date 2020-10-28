@@ -32,26 +32,67 @@ class LoginVC: UIViewController {
     
     @IBAction func signInButtonPressed(_ sender: Any) {
         
-        if usernameTextField.text == "" {
+        if usernameTextField.text != nil && passwordTextField.text != nil {
             
-            print("YOU MUST FILL THE FIELDS!!!")
-            
-            usernameTextField.shake()
+            AuthService.instance.loginUser(withEmail: usernameTextField.text!, andPassword: passwordTextField.text!) { (success, loginError) in
+                if success {
+                    self.dismiss(animated: true, completion: nil)
+                    print("Great! You've logged in!")
+                }
+                else {
+                    print(String(describing: loginError?.localizedDescription))
+                }
+                
+                //if user doesn't have an account, register with credentials that have been prompt
+                
+                AuthService.instance.registerUser(withEmail: self.usernameTextField.text!, andPassword: self.passwordTextField.text!) { (success, registrationError) in
+                    if success {
+                        AuthService.instance.loginUser(withEmail: self.usernameTextField.text!, andPassword: self.passwordTextField.text!) { (success, nil) in
+                            self.dismiss(animated: true, completion: nil)
+                            print("Created account and signed in!")
+                        }
+                    }
+                }
+            }
             
         }
-        else if passwordTextField.text == ""{
+        
+        else {
             
-            print("YOU MUST FILL THE FIELDS!!!")
-            
-            passwordTextField.shake()
+            if usernameTextField.text == "" {
+                       
+                       print("YOU MUST FILL THE FIELDS!!!")
+                       
+                       usernameTextField.shake()
+                       
+                   }
+                   else if passwordTextField.text == ""{
+                       
+                       print("YOU MUST FILL THE FIELDS!!!")
+                       
+                       passwordTextField.shake()
+                       
+                   }
             
         }
+        
+       
         
     }
     
 
 }
 
+
+
+
+
+
+
+
+
+
+//Shake animation
 extension UIView {
     func shake(){
         let animation = CABasicAnimation(keyPath: "position")
