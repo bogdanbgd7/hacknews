@@ -91,7 +91,7 @@
         <!--Profile-->
         <scene sceneID="sSd-ez-szG">
             <objects>
-                <viewController id="UZ2-Qe-30e" sceneMemberID="viewController">
+                <viewController id="UZ2-Qe-30e" customClass="ProfileVC" customModule="hacknews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uVl-Mv-Mwi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,6 +107,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="power" catalog="system"/>
+                                        <connections>
+                                            <action selector="logoutButtonPressed:" destination="UZ2-Qe-30e" eventType="touchUpInside" id="vCG-0T-epz"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aq-bE-ME3">
                                         <rect key="frame" x="154" y="67" width="106" height="26"/>
@@ -190,6 +193,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" selectedImage="person.fill" id="ugu-su-ftf"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="AiS-bM-V5J" id="Y6b-w7-U7D"/>
+                        <outlet property="profileImage" destination="1Yy-2X-S5z" id="WPJ-JU-dIm"/>
+                        <outlet property="tableView" destination="dKX-Kf-oHX" id="kD4-5Q-OvO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41C-8C-4DL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

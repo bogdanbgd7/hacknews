@@ -13,8 +13,21 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
+    
+    //MARK: - Outlets
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: - Actions
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        
+    }
+    
+    
     
 
 
