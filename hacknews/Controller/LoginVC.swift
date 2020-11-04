@@ -85,13 +85,6 @@ class LoginVC: UIViewController {
 
 
 
-
-
-
-
-
-
-
 //Shake animation
 extension UIView {
     func shake(){
