@@ -11,12 +11,26 @@ import UIKit
 
 @IBDesignable
 class RoundButton: UIButton {
+    
+//    override init(frame: CGRect){
+//        super.init(frame: frame)
+//    }
 
     @IBInspectable var cornerRadius: CGFloat = 0{
         didSet{
         self.layer.cornerRadius = cornerRadius
         }
     }
+    
+    fileprivate func sharedInit(){
+        translatesAutoresizingMaskIntoConstraints = false
+        layer.cornerRadius = cornerRadius
+      }
+
+      override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        sharedInit()
+      }
 
     @IBInspectable var borderWidth: CGFloat = 0{
         didSet{
@@ -29,4 +43,6 @@ class RoundButton: UIButton {
             self.layer.borderColor = borderColor.cgColor
         }
     }
+    
+   
 }

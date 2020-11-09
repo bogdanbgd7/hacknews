@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
    @IBDesignable
-class RoundedTextField: UITextField {
+    class RoundedTextField: UITextField {
 
         func setup() {
             let border = CALayer()

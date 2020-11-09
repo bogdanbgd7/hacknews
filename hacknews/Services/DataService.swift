@@ -50,4 +50,20 @@ class DataService{
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
+    //MARK: Write post into the Firebase
+    
+    func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ()){
+        
+        if groupKey != nil {
+            //send to group ref
+        }
+        else {
+            //send to feed ref
+            REF_FEED.childByAutoId().updateChildValues(["content" : message, "senderId": uid])
+            sendComplete(true)
+            
+        }
+        
+    }
+    
 }
