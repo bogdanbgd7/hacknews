@@ -44,7 +44,7 @@ class CreatePostVC: UIViewController {
             
             DataService.instance.uploadPost(withMessage: textView.text, forUID: Auth.auth().currentUser!.uid, withGroupKey: nil) { (true) in
                 if true {
-                    print("yadadada")
+                    print("Good Job! Message sent successfuly!")
                     self.dismiss(animated: true, completion: nil)
                     
                 }

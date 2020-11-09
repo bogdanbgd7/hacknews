@@ -24,6 +24,7 @@
 		438C598C25531C2800744412 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C598B25531C2800744412 /* ProfileVC.swift */; };
 		438C59E32554593100744412 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C59E22554593100744412 /* CustomTextView.swift */; };
 		439E1B9E255996BF0059A9AE /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E1B9D255996BF0059A9AE /* CreatePostVC.swift */; };
+		439E1BA12559AC350059A9AE /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E1BA02559AC350059A9AE /* FeedCell.swift */; };
 		DB80238C6ACA42699BE72D62 /* Pods_hacknews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0182427168A757907CA0DB /* Pods_hacknews.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		438C598B25531C2800744412 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		438C59E22554593100744412 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		439E1B9D255996BF0059A9AE /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
+		439E1BA02559AC350059A9AE /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		AC0182427168A757907CA0DB /* Pods_hacknews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hacknews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1DA77EC57006811180958D /* Pods-hacknews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hacknews.release.xcconfig"; path = "Target Support Files/Pods-hacknews/Pods-hacknews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				430CC62F25488B7300291DF0 /* RoundButton.swift */,
 				430CC6312548904200291DF0 /* RoundedTextField.swift */,
 				438C59E22554593100744412 /* CustomTextView.swift */,
+				439E1BA02559AC350059A9AE /* FeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				4341D71525432371004DFC5E /* GroupsVC.swift in Sources */,
 				430CC6322548904200291DF0 /* RoundedTextField.swift in Sources */,
 				430CC62A25483EC000291DF0 /* LoginVC.swift in Sources */,
+				439E1BA12559AC350059A9AE /* FeedCell.swift in Sources */,
 				4341D71325432371004DFC5E /* FeedVC.swift in Sources */,
 				4341D70F25432371004DFC5E /* AppDelegate.swift in Sources */,
 				4341D71125432371004DFC5E /* SceneDelegate.swift in Sources */,
