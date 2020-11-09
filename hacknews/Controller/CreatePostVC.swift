@@ -7,24 +7,68 @@
 //
 
 import UIKit
+import Firebase
 
 class CreatePostVC: UIViewController {
 
+    //MARK: Outlets
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var textView: CustomTextView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var postButton: RoundButton!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //Delegates
+        textView.delegate = self
+        
+        
+    }
+    
+    //MARK: Actions
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        
+        self.dismiss(animated: true) {
+            print("You have just clicked close button")
+        }
+    }
+    
+    
+    @IBAction func createPostBtnPressed(_ sender: Any) {
+        
+        if textView.text != nil && textView.text != "say something clever..." {
+            
+            postButton.isEnabled = false
+            
+            DataService.instance.uploadPost(withMessage: textView.text, forUID: Auth.auth().currentUser!.uid, withGroupKey: nil) { (true) in
+                if true {
+                    print("yadadada")
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }
+                else {
+                    print("There was an error.")
+                }
+            }
+                
+            }
+            
+        }
+        
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+
+
+//MARK: Extensions
+extension CreatePostVC: UITextViewDelegate{
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
     }
-    */
-
+    
 }
