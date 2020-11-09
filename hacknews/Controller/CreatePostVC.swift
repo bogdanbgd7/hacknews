@@ -49,7 +49,9 @@ class CreatePostVC: UIViewController {
                     
                 }
                 else {
-                    print("There was an error.")
+                    print("There was an error. Please contact support.")
+                    
+                    
                 }
             }
                 
