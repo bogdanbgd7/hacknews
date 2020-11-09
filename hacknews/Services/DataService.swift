@@ -51,7 +51,6 @@ class DataService{
     }
     
     //MARK: Write post into the Firebase
-    
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ()){
         
         if groupKey != nil {
@@ -63,6 +62,31 @@ class DataService{
             sendComplete(true)
             
         }
+        
+    }
+    
+    //MARK: Get all messages from Firebase and write them into the Model
+    func getAllMessages(handler: @escaping (_ messages: [Message]) -> ()) {
+        
+        var messageArray = [Message]()
+        
+        //get all messages as [snapshot]
+        REF_FEED.observeSingleEvent(of: .value) { (feedMessageSnapshot) in
+            guard let feedMessageSnapshot = feedMessageSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            
+        
+            //go through all messages and append them into the messageArray
+            for message in feedMessageSnapshot {
+                let content = message.childSnapshot(forPath: "content").value as! String
+                let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                let message = Message(content: content, senderID: senderId)
+                messageArray.append(message)
+            }
+            
+            handler(messageArray)
+            
+        }
+        
         
     }
     

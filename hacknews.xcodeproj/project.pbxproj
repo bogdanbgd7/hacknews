@@ -25,6 +25,7 @@
 		438C59E32554593100744412 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C59E22554593100744412 /* CustomTextView.swift */; };
 		439E1B9E255996BF0059A9AE /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E1B9D255996BF0059A9AE /* CreatePostVC.swift */; };
 		439E1BA12559AC350059A9AE /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E1BA02559AC350059A9AE /* FeedCell.swift */; };
+		439E1BA42559AEAA0059A9AE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439E1BA32559AEAA0059A9AE /* Message.swift */; };
 		DB80238C6ACA42699BE72D62 /* Pods_hacknews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0182427168A757907CA0DB /* Pods_hacknews.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		438C59E22554593100744412 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		439E1B9D255996BF0059A9AE /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		439E1BA02559AC350059A9AE /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		439E1BA32559AEAA0059A9AE /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		AC0182427168A757907CA0DB /* Pods_hacknews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hacknews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1DA77EC57006811180958D /* Pods-hacknews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hacknews.release.xcconfig"; path = "Target Support Files/Pods-hacknews/Pods-hacknews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 		4341D7272543247B004DFC5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				439E1BA32559AEAA0059A9AE /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				4341D70F25432371004DFC5E /* AppDelegate.swift in Sources */,
 				4341D71125432371004DFC5E /* SceneDelegate.swift in Sources */,
 				430CC6262543290700291DF0 /* DataService.swift in Sources */,
+				439E1BA42559AEAA0059A9AE /* Message.swift in Sources */,
 				438C598C25531C2800744412 /* ProfileVC.swift in Sources */,
 				430CC62E25484BA400291DF0 /* AuthService.swift in Sources */,
 			);
