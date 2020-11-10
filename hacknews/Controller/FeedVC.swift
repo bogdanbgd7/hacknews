@@ -24,15 +24,27 @@ class FeedVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        DispatchQueue.main.async {
+           self.tableView.reloadData();
+         }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         DataService.instance.getAllMessages { (returnedMessagesArray) in
-            self.messageArray = returnedMessagesArray
-            self.tableView.reloadData()
+            self.messageArray = returnedMessagesArray.reversed() //Last message will be showed on the top
+            DispatchQueue.main.async {
+               self.tableView.reloadData()
+             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        DispatchQueue.main.async {
+           self.tableView.reloadData();
+         }
     }
     
 
@@ -53,11 +65,17 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource{
 
         let image = UIImage(named: "first")
         let message = messageArray[indexPath.row]
+        
+        DataService.instance.getEmail(forUID: message.senderID) { (returnedUsername) in
+            cell.configureCell(profileImage: image!, email: returnedUsername, content: message.content)
+        }
 
-        cell.configureCell(profileImage: image!, email: message.senderID, content: message.content)
+        
 
         return cell
     }
+    
+    
 
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileVC: UIViewController {
 
@@ -24,6 +25,22 @@ class ProfileVC: UIViewController {
     //MARK: - Actions
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
+        
+        let popup = UIAlertController(title: "logout?", message: "wanna logout?", preferredStyle: .actionSheet)
+        let logoutAction = UIAlertAction(title: "logout", style: .destructive) { (action) in
+            do {
+                try Auth.auth().signOut()
+                let authVC = self.storyboard?.instantiateViewController(identifier: "AuthVC") as? AuthVC
+                self.present(authVC!, animated: true, completion: nil)
+            }
+            catch {
+                print(error)
+            }
+            
+        }
+        
+        popup.addAction(logoutAction)
+        present(popup, animated: true, completion: nil)
         
     }
     

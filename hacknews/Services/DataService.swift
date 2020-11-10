@@ -50,6 +50,19 @@ class DataService{
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
+    //MARK: Convert UID to email
+    func getEmail(forUID uid: String, handler: @escaping (_ username: String) -> ())  {
+        REF_USERS.observeSingleEvent(of: .value) { (usersSnapshot) in
+            guard let usersSnapshot = usersSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            for user in usersSnapshot {
+                if user.key == uid {
+                    handler(user.childSnapshot(forPath: "email").value as! String)
+                }
+            }
+            
+        }
+    }
+    
     //MARK: Write post into the Firebase
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ()){
         
