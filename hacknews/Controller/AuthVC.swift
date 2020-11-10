@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AuthVC: UIViewController {
     
@@ -18,6 +19,16 @@ class AuthVC: UIViewController {
         
         stackView.layer.cornerRadius = 17
        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //if there IS a user
+        if Auth.auth().currentUser != nil {
+            dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     

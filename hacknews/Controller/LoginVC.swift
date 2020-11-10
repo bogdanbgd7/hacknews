@@ -50,6 +50,8 @@ class LoginVC: UIViewController {
                         AuthService.instance.loginUser(withEmail: self.usernameTextField.text!, andPassword: self.passwordTextField.text!) { (success, nil) in
                             self.dismiss(animated: true, completion: nil)
                             print("Created account and signed in!")
+                            let feedVC = self.storyboard?.instantiateViewController(withIdentifier: "FeedVC")
+                            self.present(feedVC!, animated: true, completion: nil)
                         }
                     }
                 }
