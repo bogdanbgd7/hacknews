@@ -24,7 +24,11 @@ class CreatePostVC: UIViewController {
         //Delegates
         textView.delegate = self
         
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.usernameLabel.text = Auth.auth().currentUser?.email
     }
     
     //MARK: Actions

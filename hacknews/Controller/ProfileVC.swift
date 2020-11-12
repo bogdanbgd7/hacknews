@@ -17,6 +17,11 @@ class ProfileVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.emailLabel.text = Auth.auth().currentUser?.email
+    }
+    
     //MARK: - Outlets
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
@@ -39,7 +44,10 @@ class ProfileVC: UIViewController {
             
         }
         
+        let cancelACtion = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        
         popup.addAction(logoutAction)
+        popup.addAction(cancelACtion)
         present(popup, animated: true, completion: nil)
         
     }
