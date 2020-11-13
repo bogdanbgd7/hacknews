@@ -45,7 +45,7 @@ class DataService{
     
     
     
-    //push a user into the user's field.
+    //MARK: - Push a user into the user's field.
     func createDBUser(uid: String, userData: Dictionary<String, Any>){
         REF_USERS.child(uid).updateChildValues(userData)
     }
@@ -63,7 +63,7 @@ class DataService{
         }
     }
     
-    //MARK: Write post into the Firebase
+    //MARK: - Write post into the Firebase
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ()){
         
         if groupKey != nil {
@@ -78,7 +78,7 @@ class DataService{
         
     }
     
-    //MARK: Get all messages from Firebase and write them into the Model
+    //MARK: - Get all messages from Firebase and write them into the Model
     func getAllMessages(handler: @escaping (_ messages: [Message]) -> ()) {
         
         var messageArray = [Message]()
@@ -100,7 +100,23 @@ class DataService{
             
         }
         
-        
+    }
+    
+    //MARK: - Search through emails
+    func getEmail(forSearchQuery query : String, handler: @escaping (_ emailArray : [String]) -> () ) {
+        var emailArray = [String]()
+        REF_USERS.observe(.value) { (usersSnapshot) in
+            guard let userSnapshot = usersSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            for user in userSnapshot {
+                let userEmail = user.childSnapshot(forPath: "email").value as! String
+                
+                if userEmail.contains(query) == true && userEmail != Auth.auth().currentUser?.email{
+                    emailArray.append(userEmail)
+                }
+                
+            }
+            handler(emailArray)
+        }
     }
     
 }
