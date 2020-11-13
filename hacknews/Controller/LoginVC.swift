@@ -38,6 +38,8 @@ class LoginVC: UIViewController {
                 if success {
                     self.dismiss(animated: true, completion: nil)
                     print("Great! You've logged in!")
+                    let feedVC = self.storyboard?.instantiateViewController(withIdentifier: "FeedVC")
+                    self.present(feedVC!, animated: true, completion: nil)
                 }
                 else {
                     print(String(describing: loginError?.localizedDescription))
