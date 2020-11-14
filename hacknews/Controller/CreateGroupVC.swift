@@ -19,6 +19,7 @@ class CreateGroupVC: UIViewController {
         addPeopleTxtField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
+    
     @objc func textFieldDidChange(){
         if addPeopleTxtField.text == "" {
             emailArray = []
@@ -36,8 +37,10 @@ class CreateGroupVC: UIViewController {
     @IBOutlet weak var descriptionTxtField: UITextField!
     @IBOutlet weak var addPeopleTxtField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var membersLabel: UILabel!
     
     var emailArray = [String]()
+    var chosenUsersArray = [String]()
     
     
     //MARK: - Actions
@@ -45,6 +48,7 @@ class CreateGroupVC: UIViewController {
     }
     
     @IBAction func closeBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
@@ -63,13 +67,34 @@ extension CreateGroupVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else { return UITableViewCell() }
         let profileImgg = UIImage(named: "first")
-        cell.configureCell(profileImage: profileImgg!, email: emailArray[indexPath.row], isSelected: true)
+        
+        if chosenUsersArray.contains(emailArray[indexPath.row]){
+            cell.configureCell(profileImage: profileImgg!, email: emailArray[indexPath.row], isSelected: true)
+        }else {
+            cell.configureCell(profileImage: profileImgg!, email: emailArray[indexPath.row], isSelected: false)
+        }
+        
         return cell
+    }
+    
+    //MARK: - Adding selected users to chosenUsersArray
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else {return}
+        if !chosenUsersArray.contains(cell.emailLabel.text!){
+            chosenUsersArray.append(cell.emailLabel.text!)
+            membersLabel.text = chosenUsersArray.joined(separator: ", ")
+        }
+        else {
+            chosenUsersArray = chosenUsersArray.filter({ $0 != cell.emailLabel.text! })
+            if chosenUsersArray.count >= 1{
+                membersLabel.text = chosenUsersArray.joined(separator: ", ")
+            } else {
+                membersLabel.text = "add people to group"
+            }
+        }
     }
 }
 
 extension CreateGroupVC: UITextFieldDelegate{
-    
-    
     
 }

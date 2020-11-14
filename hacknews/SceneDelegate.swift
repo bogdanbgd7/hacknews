@@ -34,6 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                   window?.rootViewController = initialVC
                   window?.makeKeyAndVisible()
             
+        } else {
+            
         }
 
 

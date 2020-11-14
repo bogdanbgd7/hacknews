@@ -11,11 +11,11 @@ import UIKit
 
 class Message {
     
-    //MARK: Private variables
+    //MARK: - Private variables
     private var _content: String
     private var _senderID: String
     
-    //MARK: Public variables
+    //MARK: - Public variables
     var content: String {
         return _content
     }
@@ -24,7 +24,7 @@ class Message {
         return _senderID
     }
     
-    //MARK: Initializer
+    //MARK: - Initializer
     init(content: String, senderID: String) {
         
         self._content = content

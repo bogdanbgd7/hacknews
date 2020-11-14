@@ -13,6 +13,7 @@ class AuthService {
     
     static let instance = AuthService()
     
+    //MARK: - Register user
     func registerUser(withEmail email: String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
         
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
@@ -27,6 +28,7 @@ class AuthService {
         
     }
     
+    //MARK: - Login user
     func loginUser(withEmail email: String, andPassword password: String, loginComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
         
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
@@ -43,9 +45,6 @@ class AuthService {
         }
         
     }
-    
-    
-    
     
     
 }

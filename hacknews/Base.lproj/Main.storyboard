@@ -540,7 +540,7 @@
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add people" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ig-nE-vPd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add people" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Ig-nE-vPd">
                                         <rect key="frame" x="0.0" y="158" width="364" height="23.5"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
                                         <color key="textColor" red="0.08186827226" green="0.70261837410000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -632,6 +632,7 @@
                     <connections>
                         <outlet property="addPeopleTxtField" destination="VQ7-2x-2uw" id="ZLH-fb-gCY"/>
                         <outlet property="descriptionTxtField" destination="Adr-MJ-bP0" id="Bni-KB-CfP"/>
+                        <outlet property="membersLabel" destination="3Ig-nE-vPd" id="rnN-c4-W1Z"/>
                         <outlet property="tableView" destination="SEB-zJ-OCI" id="Ic0-rg-3Gi"/>
                         <outlet property="titleTxtField" destination="Z41-iU-lan" id="EkE-QW-6Vj"/>
                     </connections>

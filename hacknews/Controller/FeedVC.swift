@@ -70,8 +70,6 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource{
             cell.configureCell(profileImage: image!, email: returnedUsername, content: message.content)
         }
 
-        
-
         return cell
     }
     
