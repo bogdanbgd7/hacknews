@@ -50,7 +50,7 @@ class DataService{
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
-    //MARK: Convert UID to email
+    //MARK: - Convert UID to email
     func getEmail(forUID uid: String, handler: @escaping (_ username: String) -> ())  {
         REF_USERS.observeSingleEvent(of: .value) { (usersSnapshot) in
             guard let usersSnapshot = usersSnapshot.children.allObjects as? [DataSnapshot] else {return}
@@ -117,6 +117,29 @@ class DataService{
             }
             handler(emailArray)
         }
+    }
+    
+    //MARK: - Get user id by email
+    func getIds(forUsername username : [String], handler : @escaping(_ uidArray: [String]) -> () ){
+        REF_USERS.observeSingleEvent(of: .value) { (usersSnapshot) in
+            var idsArray = [String]()
+            guard let userSnapshot = usersSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            for user in userSnapshot {
+                let userEmail = user.childSnapshot(forPath: "email").value as! String
+                if username.contains(userEmail){
+                    idsArray.append(user.key)
+                }
+            }
+            
+            handler(idsArray)
+        }
+    }
+    
+    //MARK: - Create group
+    func createGroup(withTitle title: String, withDescription description: String, ids: [String], handler: @escaping (_ groupCreated: Bool) -> ()){
+        REF_GROUPS.childByAutoId().updateChildValues(["title" : title, "description" : description, "members" : ids])
+        handler(true)
+        
     }
     
 }
