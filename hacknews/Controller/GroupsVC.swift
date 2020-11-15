@@ -10,6 +10,8 @@ import UIKit
 
 class GroupsVC: UIViewController {
     
+    var groupsArray = [Group]()
+    
     //MARK: - Outlets
     @IBOutlet weak var tableVIew: UITableView!
     
@@ -18,6 +20,18 @@ class GroupsVC: UIViewController {
         
         tableVIew.delegate = self
         tableVIew.dataSource = self
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
+            DataService.instance.getGroups { (returnedGroupArrayFirebase) in
+                self.groupsArray = returnedGroupArrayFirebase
+                self.tableVIew.reloadData()
+            }
+        }
+        
         
         
     }
@@ -31,12 +45,14 @@ extension GroupsVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return groupsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as? GroupCell else {return UITableViewCell()}
-        cell.configureCell(title: "Rimputapa", description: "DAbila", memberCounter: 2)
+        
+        let group = groupsArray[indexPath.row]
+        cell.configureCell(title: group.title, description: group.description, memberCounter: group.membersCounter)
         return cell
     }
     

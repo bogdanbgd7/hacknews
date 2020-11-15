@@ -142,4 +142,36 @@ class DataService{
         
     }
     
+    //MARK: - Get all groups from Firebase
+    func getGroups(handler: @escaping (_ groupsArray: [Group]) -> ()){
+        
+        var groupsArray = [Group]()
+        
+        REF_GROUPS.observeSingleEvent(of: .value) { (groupSnapshot) in
+            guard let grouppSnapshot = groupSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            
+        
+            //go through all groups and append them into the groupsArray
+            for group in grouppSnapshot {
+                let members = group.childSnapshot(forPath: "members").value as! [String]
+                if(members.contains(Auth.auth().currentUser!.uid)){
+                    let title = group.childSnapshot(forPath: "title").value as! String
+                    let description = group.childSnapshot(forPath: "description").value as! String
+                    //let senderId = group.childSnapshot(forPath: "senderId").value as! String
+                    let membersCounter = members.count
+                    let group = Group(title: title, description: description, members: members, senderID: group.key, membersCounter: membersCounter)
+                    groupsArray.append(group)
+                }
+                
+               
+            }
+            
+            handler(groupsArray)
+            
+            
+            
+        }
+        
+    }
+    
 }
