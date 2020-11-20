@@ -9,11 +9,21 @@
 import UIKit
 
 class GroupFeedVC: UIViewController {
-
+    
+    //MARK: - Outlets
+    @IBOutlet weak var friendsLabel: UILabel!
+    
+    //MARK: - didLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
+    }
+    
+    //MARK: - Actions
+    
+    @IBAction func backBtnWasPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 
