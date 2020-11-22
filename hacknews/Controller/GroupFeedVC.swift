@@ -15,12 +15,33 @@ class GroupFeedVC: UIViewController {
     @IBOutlet weak var groupTitleLabel: UILabel!
     @IBOutlet weak var messageTxtField: UITextField!
     
+    //MARK: - Receive data from GroupVC
+    var group:  Group?
+    
+    func getGroupData(forGroup group: Group){
+        self.group = group
+        
+    }
+    
+    //MARK: - viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        groupTitleLabel.text = group?.title
+        DataService.instance.getEmails(group: group!) { (returnedEMails) in
+            self.friendsLabel.text = returnedEMails.joined(separator: ", ")
+        }
+        
+        
+    }
+    
     //MARK: - didLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
     }
+    
     
     //MARK: - Actions
     
