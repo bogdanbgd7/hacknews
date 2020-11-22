@@ -12,6 +12,8 @@ class GroupFeedVC: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var friendsLabel: UILabel!
+    @IBOutlet weak var groupTitleLabel: UILabel!
+    @IBOutlet weak var messageTxtField: UITextField!
     
     //MARK: - didLoad()
     override func viewDidLoad() {
@@ -26,6 +28,8 @@ class GroupFeedVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    @IBAction func sendMessageBtnPressed(_ sender: Any) {
+    }
+    
 
 }

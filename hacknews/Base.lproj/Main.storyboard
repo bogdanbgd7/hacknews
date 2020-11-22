@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9P4-vU-nIm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -492,7 +492,7 @@
         <!--Group FeedVC-->
         <scene sceneID="PzH-CE-AhG">
             <objects>
-                <viewController id="9P4-vU-nIm" customClass="GroupFeedVC" customModule="hacknews" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupFeedVC" id="9P4-vU-nIm" customClass="GroupFeedVC" customModule="hacknews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bXX-lD-Tco">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -574,6 +574,9 @@
                                             <constraint firstAttribute="width" constant="35" id="WLV-2s-OEa"/>
                                         </constraints>
                                         <state key="normal" image="email-sent"/>
+                                        <connections>
+                                            <action selector="sendMessageBtnPressed:" destination="9P4-vU-nIm" eventType="touchUpInside" id="SHS-zE-hzj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -664,6 +667,8 @@
                     </view>
                     <connections>
                         <outlet property="friendsLabel" destination="tOY-9R-bAi" id="qWp-x4-1ZQ"/>
+                        <outlet property="groupTitleLabel" destination="vmz-h5-v48" id="E9u-YB-nbP"/>
+                        <outlet property="messageTxtField" destination="WiN-pt-nL0" id="lUb-b0-zYL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eja-xb-IIb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
