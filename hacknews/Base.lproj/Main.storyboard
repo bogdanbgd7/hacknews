@@ -669,6 +669,7 @@
                         <outlet property="friendsLabel" destination="tOY-9R-bAi" id="qWp-x4-1ZQ"/>
                         <outlet property="groupTitleLabel" destination="vmz-h5-v48" id="E9u-YB-nbP"/>
                         <outlet property="messageTxtField" destination="WiN-pt-nL0" id="lUb-b0-zYL"/>
+                        <outlet property="tableView" destination="pAA-YN-b32" id="XQz-IB-m1G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eja-xb-IIb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
