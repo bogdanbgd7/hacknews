@@ -40,7 +40,7 @@ class GroupFeedVC: UIViewController {
                 self.groupMessages = returnedGroupMessages
                 self.tableView.reloadData()
                 
-                //animation
+                //nice and pretty animation
                 if self.groupMessages.count > 0{
                     self.tableView.scrollToRow(at: IndexPath.init(row: self.groupMessages.count - 1, section: 0), at: .none, animated: true)
                 }
