@@ -14,11 +14,16 @@ class AuthVC: UIViewController {
     
     //Outlets
     @IBOutlet weak var stackView: UIView!
+    @IBOutlet weak var signInBTN: GIDSignInButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         stackView.layer.cornerRadius = 17
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.signIn()
        
     }
     
@@ -38,6 +43,10 @@ class AuthVC: UIViewController {
     }
     
     @IBAction func signInWithGoogleButtonPressed(_ sender: Any) {
+        
+        
+        
+        
     }
     
     
@@ -51,3 +60,4 @@ class AuthVC: UIViewController {
     
 
 }
+

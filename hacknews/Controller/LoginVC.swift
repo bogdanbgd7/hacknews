@@ -12,7 +12,6 @@ class LoginVC: UIViewController {
     
     
     //Outlets
-    
     @IBOutlet weak var usernameTextField: RoundedTextField!
     @IBOutlet weak var passwordTextField: RoundedTextField!
     
@@ -55,6 +54,8 @@ class LoginVC: UIViewController {
                             let feedVC = self.storyboard?.instantiateViewController(withIdentifier: "FeedVC")
                             self.present(feedVC!, animated: true, completion: nil)
                         }
+                    } else {
+                        print(String(describing: registrationError?.localizedDescription))
                     }
                 }
             }
@@ -62,7 +63,6 @@ class LoginVC: UIViewController {
         }
         
         else {
-            
             if usernameTextField.text == "" {
                        
                        print("YOU MUST FILL THE FIELDS!!!")

@@ -984,6 +984,11 @@
                                     <constraint firstItem="tVa-Mh-lnN" firstAttribute="top" secondItem="Lp1-54-o2m" secondAttribute="top" constant="20" id="gtf-d5-GII"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7H-AK-5RW" customClass="GIDSignInButton">
+                                <rect key="frame" x="75" y="618" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="98I-gs-Dn2"/>
                         <color key="backgroundColor" red="0.38435746891510914" green="0.38435746891510914" blue="0.38435746891510914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -999,6 +1004,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="signInBTN" destination="f7H-AK-5RW" id="L4d-Zi-7gw"/>
                         <outlet property="stackView" destination="Lp1-54-o2m" id="NN1-ev-Sxb"/>
                     </connections>
                 </viewController>
