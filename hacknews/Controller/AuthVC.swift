@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKLoginKit
 
 class AuthVC: UIViewController {
     
@@ -24,6 +25,10 @@ class AuthVC: UIViewController {
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.signIn()
+        
+        let loginButton = FBLoginButton()
+                loginButton.center = view.center
+                view.addSubview(loginButton)
        
     }
     
@@ -43,8 +48,6 @@ class AuthVC: UIViewController {
     }
     
     @IBAction func signInWithGoogleButtonPressed(_ sender: Any) {
-        
-        
         
         
     }
