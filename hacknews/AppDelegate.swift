@@ -38,7 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-       FirebaseApp.configure()
+        FirebaseApp.configure()
+        
+        //MARK: - Facebook Sign In Settings
+        ApplicationDelegate.shared.application(
+                    application,
+                    didFinishLaunchingWithOptions: launchOptions
+                )
         
         //MARK: - Google Sign In delegate
         GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID

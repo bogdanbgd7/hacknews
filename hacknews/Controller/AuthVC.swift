@@ -11,7 +11,26 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 
-class AuthVC: UIViewController {
+class AuthVC: UIViewController, LoginButtonDelegate {
+    
+    //MARK: - Facebook Login Delegate methods
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        let token = result?.token?.tokenString
+        
+        let request = FBSDKLoginKit.GraphRequest(graphPath: "me",
+                                                 parameters: ["fields" : "email, name"],
+                                                 tokenString: token,
+                                                 version: nil,
+                                                 httpMethod: .get)
+        request.start { (connection, result, error) in
+            print("\(result)")
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("logged out")
+    }
+    
     
     //Outlets
     @IBOutlet weak var stackView: UIView!
@@ -23,12 +42,36 @@ class AuthVC: UIViewController {
         
         stackView.layer.cornerRadius = 17
         
+        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.signIn()
         
-        let loginButton = FBLoginButton()
-                loginButton.center = view.center
-                view.addSubview(loginButton)
+        //MARK: - Facebook Sign In
+        if let token = AccessToken.current, !token.isExpired{
+            //user is logged in, proceed to feed vc
+            let token = token.tokenString
+            
+            let request = FBSDKLoginKit.GraphRequest(graphPath: "me",
+                                                     parameters: ["fields" : "email, name"],
+                                                     tokenString: token,
+                                                     version: nil,
+                                                     httpMethod: .get)
+            request.start { (connection, result, error) in
+                print("\(result)")
+            }
+            //asd
+            let feedVC = storyboard?.instantiateViewController(withIdentifier: "FeedVC")
+            present(feedVC!, animated: true, completion: nil)
+            print("You are logged in.\nfacebook")
+        } else {
+            //show button for login
+            let loginButton = FBLoginButton()
+            loginButton.center = view.center
+            loginButton.delegate = self
+            loginButton.permissions = ["email", "public_profile"]
+            view.addSubview(loginButton)
+        }
+      
        
     }
     
